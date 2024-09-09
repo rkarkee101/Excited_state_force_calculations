@@ -6,7 +6,7 @@ Use the attached files as your sample input reference.
 ###########################################
 
 1. Perform Fine Grid Calculation:
-   pw.x < wfn.in > wfn.out
+   pw.x < scf.in > scf.out
 
 2. Conduct Phonon Calculation:
    ph.x < ph.in > ph.out
