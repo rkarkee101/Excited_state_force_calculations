@@ -1,4 +1,5 @@
 # Excited_state_force_calculations using BerkeleyGW and Quantum ESPRESSO
+Use the attached files as your sample input reference.
 
 ###########################################
 # Workflow for Running Calculations in the `WFN_fi` Directory
