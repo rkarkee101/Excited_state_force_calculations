@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=test
+#SBATCH --partition=dept.physics
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=56
+#SBATCH --time=10:00:00
+#SBATCH --mem=0
+#SBATCH --export=ALL
+
+#export OMP_NUM_THREADS=1
+
+module load quantum-espresso/7.1
+
+mpirun -n 112   pw.x  < scf.in > scf.out
+
+mpirun -n 112  ph.x -pd .true.  <phonon.in &> phonon.out
+mpirun -n 112 dynmat.x < dynmat.in &> dynmat.out

@@ -1,0 +1,14 @@
+&inputph
+    recover=.true.
+    verbosity = 'high'
+    prefix = 'scf1'
+    outdir = './'
+    fildyn = 'dyn'
+    fildvscf = 'dvscf'
+    electron_phonon='simple'
+    trans=.true.
+    nogg=.true.
+    tr2_ph=1.0d-16
+    search_sym=.false.
+/
+0.0 0.0 0.0

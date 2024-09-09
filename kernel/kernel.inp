@@ -1,0 +1,6 @@
+number_val_bands 12
+number_cond_bands 12
+
+use_symmetries_coarse_grid
+
+screening_semiconductor

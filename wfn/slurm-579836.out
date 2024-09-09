@@ -1,0 +1,7 @@
+
+Lmod is automatically replacing "gcc/8.5.0" with "intel/2021.4.0".
+
+
+Lmod is automatically replacing "openmpi/4.1.1-gcc-8.4.1" with
+"mvapich2/2.3.6-intel-2021.4.0".
+

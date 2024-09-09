@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=test
+#SBATCH --partition=medium
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=56
+#SBATCH --time=24:00:00
+#SBATCH --exclusive
+#SBATCH --mem=0
+#SBATCH --export=ALL
+
+export OMP_NUM_THREADS=1
+
+##export MV2_ENABLE_AFFINITY=0
+#module load quantum-espresso/7.1
+
+module load berkeleygw
+
+
+
+ln -nfs ../wfn_inner/wfn.real WFN_co
+ln -nfs ../epsilon/eps0mat.h5 eps0mat.h5
+ln -nfs ../epsilon/epsmat.h5 epsmat.h5
+
+
+mpirun -n 224  kernel.cplx.x &> kernel.out
+
+#mpirun -n 28 ph.x  <phonon.in &> phonon.out
+

@@ -1,0 +1,66 @@
+&CONTROL
+    calculation = 'vc-relax'
+    pseudo_dir  = '/home/rkarkee/merced_home_backup/rkarkee/pseudo'
+    outdir       = './'
+    prefix = 'scf'
+    tprnfor = .true.
+    tstress = .true.
+    wf_collect=.true.
+    verbosity='high'
+/
+
+&SYSTEM
+    ecutwfc     = 60,
+    nat         = 11,
+    ntyp        = 5,
+    space_group=74,
+   a=14.6230001500,
+   b=6.1041002270,
+   c=14.4069995900
+
+/
+
+&ELECTRONS
+    conv_thr         =  1.00000e-12
+    electron_maxstep = 200
+    mixing_beta      =  0.5
+    diagonalization  = "david"
+!    diago_david_ndim = 4
+!    diago_full_acc = .true.
+
+/
+
+&IONS
+ion_dynamics='fire'
+/
+
+&CELL
+press_conv_thr = 0.01
+/
+
+
+
+K_POINTS automatic
+3 3 3 1 1 1
+
+ATOMIC_SPECIES
+Pb 207.2 Pb.upf
+Br 79.90 Br.upf
+C  12.01 C.upf
+H 1.008 H.upf
+N 14.01 N.upf
+
+
+
+ATOMIC_POSITIONS (crystal_sg)
+Pb   4e  0.38447
+Br   8i 0.29529  0.10313
+Br   4e  0.60947
+Br   4e 0.18695
+C    8i 0.70300 0.72690
+C    8i 0.62210  0.57740
+H   16j 0.16830 0.61870 0.24660
+H    8i 0.63090  0.51050
+H   16j 0.08785 0.88010 0.09540
+H   16j 0.24780 0.61880 0.10540
+N    8i 0.71280  0.62480

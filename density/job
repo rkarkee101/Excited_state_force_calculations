@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=test
+#SBATCH --partition=pi.dstrubbe
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=56
+#SBATCH --time=4:00:00
+#SBATCH --mem=0
+#SBATCH --export=ALL
+
+##export OMP_NUM_THREADS=1
+
+##export MV2_ENABLE_AFFINITY=0
+#module load quantum-espresso/7.1
+module load quantum-espresso/7.1
+
+mpirun -n 56   pw.x  < scf.in > scf.out
+
+#mpirun -n 28 ph.x  <phonon.in &> phonon.out
+

@@ -1,0 +1,24 @@
+verbosity 3
+
+number_val_bands_coarse 12
+number_val_bands_fine 8
+number_cond_bands_coarse 12
+number_cond_bands_fine 8
+
+gaussian_broadening
+energy_resolution 0.15
+delta_frequency 0.001
+
+use_symmetries_coarse_grid # or use_symmetries_coarse_grid, depending if you are using symmetry on it or not
+no_symmetries_fine_grid # NECESSARY FOR EXCITED STATE FORCES
+no_symmetries_shifted_grid
+
+screening_semiconductor
+
+#use_velocity
+use_momentum # NECESSARY FOR EXCITED STATE FORCES
+polarization 0 0 1
+
+eqp_co_corrections
+
+write_eigenvectors 6 # NECESSARY FOR EXCITED STATE FORCES

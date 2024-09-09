@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=test
+#SBATCH --partition=dept.physics
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=56
+#SBATCH --time=4:00:00
+#SBATCH --exclusive
+#SBATCH --mem=0
+#SBATCH --export=ALL
+
+export OMP_NUM_THREADS=1
+
+##export MV2_ENABLE_AFFINITY=0
+#module load quantum-espresso/7.1
+
+module load quantum-espresso/7.1
+
+
+
+mpirun -n 56   pw.x -ndiag 1 < bands.in > bands.out
+mpirun -n 56   pw2bgw.x -ndiag 1  < pp.in > pp.out   
+
+#mpirun -n 28 ph.x  <phonon.in &> phonon.out
+

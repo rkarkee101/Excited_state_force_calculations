@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=epsilon
+#SBATCH --partition=dept.physics
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=56
+#SBATCH --time=24:00:00
+#SBATCH --exclusive
+#SBATCH --mem=0
+#SBATCH --export=ALL
+
+export OMP_NUM_THREADS=1
+
+
+module load berkeleygw
+
+ln -nfs ../wfn/wfn.real WFN
+ln -nfs ../wfnq/wfn.real WFNq
+
+mpirun -n 56  epsilon.cplx.x   &> epsilon.out
+
